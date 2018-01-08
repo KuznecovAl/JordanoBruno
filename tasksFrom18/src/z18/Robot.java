@@ -1,37 +1,49 @@
 package z18;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+import java.util.Optional;
+
 
 public class Robot {
 
-        private Map<Details, Object> detailsSet;
+    private HashMap<Detail, Boolean> robotParts;
 
     public Robot() {
-        this.detailsSet = Arrays.stream(Details.values())
-                .collect(Collectors.toMap(Function.identity(),s->s));
-
-        detailsSet.forEach((x, y) -> System.out.println("Key: " + x +", value: "+ y));
+        robotParts = new HashMap<>(9);
+        Details[] d = Details.values();
+        for (Details aD : d) {
+            robotParts.put(new Detail(aD.name()), true);
+        }
+        robotParts.forEach((x, y) -> System.out.println("Key: " + x.hashCode() + ", value: " + y));
     }
 
 
+    public HashMap<Detail, Boolean> getRobotParts() {
+        return robotParts;
+    }
+
+    public void setRobotParts(HashMap<Detail, Boolean> robotParts) {
+        this.robotParts = robotParts;
+    }
+
+
+    public boolean isReady() {
+
+        Optional<Boolean> result = robotParts.values().stream()
+                .filter(b->!b)
+                .findFirst();
+        if (result.isPresent()) {
+            return false;
+        }else{
+            return true;
+        }
 
 
 
 
 
-
-//    public boolean isReady(){
-//        if detailsSet.size()==
-//        return
-//    }
-
-
-
+    }
 
 
 }

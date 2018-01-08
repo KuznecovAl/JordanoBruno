@@ -12,12 +12,23 @@ public class Detail {
         return name;
     }
 
-    public Detail newRnd() {
-        return new Detail("");
+    public static Detail newRnd() {
+        Details[] d = Details.values();
+        return new Detail(d[(int) (Math.random() * d.length)].name());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.hashCode()==obj.hashCode();
+    }
 
-
-
-
+    @Override
+    public int hashCode() {
+        int i = 0;
+        byte[] b = name.getBytes();
+        for (byte bB : b) {
+            i += bB;
+        }
+        return i;
+    }
 }
