@@ -1,5 +1,7 @@
 package z18;
 
+import java.util.Objects;
+
 public class Detail {
 
     private String name;
@@ -21,9 +23,17 @@ public class Detail {
     }
 
     /*переопределяем equals*/
+
     @Override
     public boolean equals(Object obj) {
-        return super.hashCode()==obj.hashCode();
+        if(this==obj){
+            return true;
+        }
+        if(obj==null||getClass()!=obj.getClass()){
+            return false;
+        }
+        final Detail other=(Detail) obj;
+        return Objects.equals(this.name, other.name);
     }
 
     /*переопределяем hashcode*/

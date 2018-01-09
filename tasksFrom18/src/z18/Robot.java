@@ -7,15 +7,16 @@ import java.util.Optional;
 public class Robot {
 
     private HashMap<Detail, Boolean> robotParts;
+    private int counter;
 
     /*Конструктор создает пустого робота*/
     public Robot() {
         robotParts = new HashMap<>(9);
         Details[] d = Details.values();
         for (Details aD : d) {
-            robotParts.put(new Detail(aD.name()), true);
+            robotParts.put(new Detail(aD.name()), false);
         }
-
+        counter=0;
     }
 
     /*геттер мапки с деталями*/
@@ -31,9 +32,16 @@ public class Robot {
 
     /*вывод на печать содержимого мапки*/
     public void printRobotParts() {
-        robotParts.forEach((x, y) -> System.out.println("Key: " + x.getName() + " h.name: " + x.hashCode() + ", value: " + y));
+        robotParts.forEach((x, y) -> System.out.println("Key: " + x.getName() +" : " + y));
     }
 
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
 
     /*проверка готовности робота*/
     public boolean isReady() {

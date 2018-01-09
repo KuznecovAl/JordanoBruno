@@ -4,15 +4,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         Robot robot = new Robot();
         robot.printRobotParts();
         System.out.println(robot.isReady());
+        System.out.println(robot.getCounter());
 
-        robot.getRobotParts().put(Detail.newRnd(), false);
+        Detail d;
+        int prohod=0;
+        do {
+            prohod++;
+            d = Detail.newRnd();
 
-        robot.printRobotParts();
-        System.out.println(robot.isReady());
+            if (!robot.getRobotParts().get(d) & robot.getCounter() != 9) {
+                robot.getRobotParts().put(d, true);
+                robot.setCounter(robot.getCounter() + 1);
+
+                robot.printRobotParts();
+                System.out.println(robot.isReady());
+                System.out.println(robot.getCounter());
+                System.out.println(prohod);
+            }
+        }while (robot.getCounter()<9);
+
+
+
 
     }
 }
