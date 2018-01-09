@@ -15,7 +15,7 @@ public class Robot {
         for (Details aD : d) {
             robotParts.put(new Detail(aD.name()), true);
         }
-        robotParts.forEach((x, y) -> System.out.println("Key: " + x.hashCode() + ", value: " + y));
+
     }
 
 
@@ -27,20 +27,21 @@ public class Robot {
         this.robotParts = robotParts;
     }
 
+    public void printRobotParts() {
+        robotParts.forEach((x, y) -> System.out.println("Key: " + x.getName() + " h.name: " + x.hashCode() + ", value: " + y));
+    }
+
 
     public boolean isReady() {
 
         Optional<Boolean> result = robotParts.values().stream()
-                .filter(b->!b)
+                .filter(b -> !b)
                 .findFirst();
         if (result.isPresent()) {
             return false;
-        }else{
+        } else {
             return true;
         }
-
-
-
 
 
     }

@@ -17,18 +17,18 @@ public class Detail {
         return new Detail(d[(int) (Math.random() * d.length)].name());
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.hashCode()==obj.hashCode();
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        return super.hashCode()==obj.hashCode();
+//    }
 
     @Override
     public int hashCode() {
-        int i = 0;
-        byte[] b = name.getBytes();
-        for (byte bB : b) {
-            i += bB;
-        }
-        return i;
+        return name.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return name+" h: "+name.hashCode();
     }
 }
