@@ -24,21 +24,15 @@ public class Robot {
         return robotParts;
     }
 
-    /*пока незнаю зачем сеттер мапки*/
-    public void setRobotParts(HashMap<Detail, Boolean> robotParts) {
-        this.robotParts = robotParts;
-    }
-
-
     /*вывод на печать содержимого мапки*/
     public void printRobotParts() {
         robotParts.forEach((x, y) -> System.out.println("Key: " + x.getName() +" : " + y));
     }
 
+    /*геттер и сеттер counter деталей в роботе*/
     public int getCounter() {
         return counter;
     }
-
     public void setCounter(int counter) {
         this.counter = counter;
     }

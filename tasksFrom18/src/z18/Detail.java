@@ -45,6 +45,6 @@ public class Detail {
     /*переопределяем toString*/
     @Override
     public String toString() {
-        return name+" h: "+name.hashCode();
+        return name;
     }
 }
