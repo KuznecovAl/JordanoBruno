@@ -2,10 +2,10 @@ package main_pack.services;
 
 import main_pack.dao.ItemDao;
 import main_pack.dao.impl.ItemDaoImpl;
-import main_pack.services.ConnectionManager;
+//import main_pack.services.ConnectionManager;
 import main_pack.entities.Item;
-import main_pack.services.ItemService;
-import main_pack.services.ServiceException;
+//import main_pack.services.ItemService;
+//import main_pack.services.ServiceException;
 
 import java.io.Serializable;
 import java.sql.SQLException;
